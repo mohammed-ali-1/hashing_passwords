@@ -1,12 +1,13 @@
 import bcrypt
 import csv
+import getpass
 
 def validate_login(uname, pword):
     hashed_pword = get_hash_from_store(uname)
     return True if hashed_pword == bcrypt.hashpw(pword, hashed_pword) else False
 
 def get_hash_from_store(uname):
-    with open("user_store.store") as user_store
+    with open("user_store.store") as user_store:
         reader = csv.reader(user_store, delimiter=",")
         line_count = 0
         for line in reader:
@@ -22,6 +23,6 @@ def get_hash_from_store(uname):
 
 def get_user_creds():
     user_name = input("Your username: ")
-    user_password = input("Your password: ").encode()
+    user_pass = getpass.getpass().encode()
 
-    return user_name, user_password
+    return user_name, user_pass
