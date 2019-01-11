@@ -13,10 +13,10 @@ def hash_pass(pword):
     return hashed_pass
 
 def add_user_to_store(uname, hashed_pword):
-    if not path.exists("user_store"):
-        with open("user_store", "a+") as f:
+    if not path.exists("user_store.store"):
+        with open("user_store.store", "a+") as f:
             f.write("uname,hashed_pword\n")
-    with open("user_store", "a+") as f:
+    with open("user_store.store", "a+") as f:
         f.write(f"{uname},{hashed_pword}\n")
 
     print("User successfully added")
