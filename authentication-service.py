@@ -24,6 +24,7 @@ def add_user_to_store(uname, hashed_pword):
             f.write("uname,hashed_pword\n")
             f.write(f"{uname},{hashed_pword}\n")
             print ("User successfully added")
+            return
     if unique(uname):
         with open("user_store.store", "a+") as f:
             f.write(f"{uname},{hashed_pword}\n")
