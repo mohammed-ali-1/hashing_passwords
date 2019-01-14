@@ -47,9 +47,9 @@ def get_hash_from_store(uname):
                 continue
             else:
                 user_name_from_store = line[0]
-                hash_from_store = line[1]
                 if user_name_from_store == uname:
-                   return hash_from_store.encode()
+                    hash_from_store = line[1]
+                    return hash_from_store.encode()
                 line_count += 1
 
 def get_user_creds():
@@ -59,6 +59,6 @@ def get_user_creds():
 
 def hash_pass(pword):
     salt = bcrypt.gensalt()
-    hashed_pass = bcrypt.hashpw(pword, salt)
-    hashed_pass = hashed_pass.decode()
-    return hashed_pass
+    hashed_pword = bcrypt.hashpw(pword, salt)
+    hashed_pword = hashed_pass.decode()
+    return hashed_pword
